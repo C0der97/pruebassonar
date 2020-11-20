@@ -12,5 +12,6 @@ AS
     FOREIGN KEY (store_id) REFERENCES sales.stores (store_id)
 );';
 
+
 exec SP_EXECUTESQL @cosa;
 GO  
