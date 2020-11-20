@@ -1,0 +1,36 @@
+﻿CREATE TABLE [dbo].[Order](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[OrderDate] [datetime] NOT NULL,
+	[OrderNumber] [nvarchar](10) NULL,
+	[CustomerId] [int] NOT NULL,
+	[TotalAmount] [decimal](12, 2) NULL,
+	[New] [decimal](12, 2) NULL,
+ CONSTRAINT [PK_ORDER] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[Order]  WITH CHECK ADD  CONSTRAINT [FK_ORDER_REFERENCE_CUSTOMER] FOREIGN KEY([CustomerId])
+REFERENCES [dbo].[Customer] ([Id])
+GO
+
+ALTER TABLE [dbo].[Order] CHECK CONSTRAINT [FK_ORDER_REFERENCE_CUSTOMER]
+GO
+ALTER TABLE [dbo].[Order] ADD  DEFAULT (getdate()) FOR [OrderDate]
+GO
+ALTER TABLE [dbo].[Order] ADD  DEFAULT ((0)) FOR [TotalAmount]
+GO
+ALTER TABLE [dbo].[Order] ADD  DEFAULT ((0)) FOR [New]
+GO
+/****** Object:  Index [IndexOrderCustomerId]    Script Date: 21/10/2020 5:10:12 p. m. ******/
+CREATE NONCLUSTERED INDEX [IndexOrderCustomerId] ON [dbo].[Order]
+(
+	[CustomerId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+GO
+/****** Object:  Index [IndexOrderOrderDate]    Script Date: 21/10/2020 5:10:12 p. m. ******/
+CREATE NONCLUSTERED INDEX [IndexOrderOrderDate] ON [dbo].[Order]
+(
+	[OrderDate] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
