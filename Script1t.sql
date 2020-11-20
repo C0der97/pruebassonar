@@ -13,4 +13,6 @@ AS
 );';
 
 exec SP_EXECUTESQL @cosa;
-GO  
+END
+GO
+
