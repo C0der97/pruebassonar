@@ -1,4 +1,4 @@
-CREATE PROCEDURE dbo.procedimiento   
+CREATE PROCEDURE dbo.procedimiento2   
     @LastName nvarchar(50),   
     @FirstName nvarchar(50)   
 AS   
