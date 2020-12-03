@@ -1,0 +1,34 @@
+CREATE TABLE [dbo].[Product](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[ProductName] [nvarchar](50) NOT NULL,
+	[SupplierId] [int] NOT NULL,
+	[UnitPrice] [decimal](12, 2) NULL,
+	[Package] [nvarchar](30) NULL,
+	[IsDiscontinued] [bit] NOT NULL,
+ CONSTRAINT [PK_PRODUCT] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[Product]  WITH CHECK ADD  CONSTRAINT [FK_PRODUCT_REFERENCE_SUPPLIER] FOREIGN KEY([SupplierId])
+REFERENCES [dbo].[Supplier] ([Id])
+GO
+
+ALTER TABLE [dbo].[Product] CHECK CONSTRAINT [FK_PRODUCT_REFERENCE_SUPPLIER]
+GO
+ALTER TABLE [dbo].[Product] ADD  DEFAULT ((0)) FOR [UnitPrice]
+GO
+ALTER TABLE [dbo].[Product] ADD  DEFAULT ((0)) FOR [IsDiscontinued]
+GO
+/****** Object:  Index [IndexProductName]    Script Date: 21/10/2020 5:10:12 p. m. ******/
+CREATE NONCLUSTERED INDEX [IndexProductName] ON [dbo].[Product]
+(
+	[ProductName] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+GO
+/****** Object:  Index [IndexProductSupplierId]    Script Date: 21/10/2020 5:10:12 p. m. ******/
+CREATE NONCLUSTERED INDEX [IndexProductSupplierId] ON [dbo].[Product]
+(
+	[SupplierId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
