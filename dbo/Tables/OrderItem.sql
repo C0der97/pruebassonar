@@ -1,4 +1,4 @@
-﻿CREATE TABLE [dbo].[OrderItem](
+CREATE TABLE [dbo].[OrderItem](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
 	[OrderId] [int] NOT NULL,
 	[ProductId] [int] NOT NULL,

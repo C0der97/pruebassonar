@@ -1,4 +1,4 @@
-﻿CREATE TABLE [dbo].[Product](
+CREATE TABLE [dbo].[Product](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
 	[ProductName] [nvarchar](50) NOT NULL,
 	[SupplierId] [int] NOT NULL,

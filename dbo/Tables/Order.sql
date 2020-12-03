@@ -1,4 +1,4 @@
-﻿CREATE TABLE [dbo].[Order](
+CREATE TABLE [dbo].[Order](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
 	[OrderDate] [datetime] NOT NULL,
 	[OrderNumber] [nvarchar](10) NULL,

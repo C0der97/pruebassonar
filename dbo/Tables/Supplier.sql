@@ -1,4 +1,4 @@
-﻿CREATE TABLE [dbo].[Supplier](
+CREATE TABLE [dbo].[Supplier](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
 	[CompanyName] [nvarchar](40) NOT NULL,
 	[ContactName] [nvarchar](50) NULL,
