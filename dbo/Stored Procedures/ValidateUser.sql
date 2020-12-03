@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[ValidateUser]  
+CREATE PROCEDURE [dbo].[ValidateUser]  
 @email varchar(100),  
 @password varchar(20) 
 AS 

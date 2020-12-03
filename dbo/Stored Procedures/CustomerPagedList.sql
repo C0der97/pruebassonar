@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[CustomerPagedList]  
+CREATE PROCEDURE [dbo].[CustomerPagedList]  
 @page int,  
 @rows int 
 AS 
