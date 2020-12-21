@@ -4,7 +4,6 @@
 AS 
 BEGIN  
 
- 
  SELECT [Id]  ,[FirstName] ,[LastName] ,[City],[Country],[Phone],
  COUNT(*) OVER() TotalRecords
  FROM [Customer]
