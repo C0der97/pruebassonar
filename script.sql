@@ -1,10 +1,4 @@
-﻿USE [NORTHWND]
-GO
-/****** Object:  StoredProcedure [dbo].[CustOrderHist]    Script Date: 3/12/2020 10:46:36 a. m. ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
+
 CREATE PROCEDURE [dbo].[CustOrderHist] @CustomerID nchar(5)
 AS
 SELECT ProductName, Total=SUM(Quantity)
